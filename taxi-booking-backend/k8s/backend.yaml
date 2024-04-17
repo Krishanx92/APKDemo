@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: booking-service
+spec:
+  type: ClusterIP
+  ports:
+    - port: 81
+      targetPort: 81
+  selector:
+    app: booking-app
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: booking-service-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: booking-app
+  template:
+    metadata:
+      labels:
+        app: booking-app
+    spec:
+      containers:
+        - name: booking-service-container
+          image: krishanx92/booking:1.0.0
+          ports:
+            - containerPort: 81

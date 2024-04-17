@@ -1,0 +1,27 @@
+name: "Hotel Reservation API"
+basePath: "/SG90ZWwgUmVzZXJ2YXRpb24gQVBJMS4wLjA"
+version: "1.0.0"
+type: "REST"
+defaultVersion: false
+subscriptionValidation: false
+endpointConfigurations:
+  production:
+    endpoint: "http://hotel-service:82"
+operations:
+- target: "/reservation"
+  verb: "GET"
+  secured: true
+  scopes: []
+- target: "/reservation"
+  verb: "POST"
+  secured: true
+  scopes: []
+- target: "/reservation/{id}"
+  verb: "PUT"
+  secured: true
+  scopes: []
+- target: "/reservation/{id}"
+  verb: "DELETE"
+  secured: true
+  scopes: []
+

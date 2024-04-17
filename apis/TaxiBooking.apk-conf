@@ -1,0 +1,27 @@
+name: "Taxi Booking API"
+basePath: "/VGF4aSBCb29raW5nIEFQSTEuMC4w"
+version: "1.0.0"
+type: "REST"
+defaultVersion: false
+subscriptionValidation: false
+endpointConfigurations:
+  production:
+    endpoint: "http://booking-service:81"
+operations:
+- target: "/booking"
+  verb: "GET"
+  secured: true
+  scopes: []
+- target: "/booking"
+  verb: "POST"
+  secured: true
+  scopes: []
+- target: "/booking/{id}"
+  verb: "PUT"
+  secured: true
+  scopes: []
+- target: "/booking/{id}"
+  verb: "DELETE"
+  secured: true
+  scopes: []
+
