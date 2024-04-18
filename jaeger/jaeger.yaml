@@ -63,7 +63,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: jaeger.example.com  
+    - host: jaeger.gogo.com  
       http:
         paths:
           - path: /api/v2/spans 

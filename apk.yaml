@@ -204,6 +204,11 @@ wso2:
           - enabled: true
             type: "moesif"
             secretName: moesif-secret
+          - enabled: true
+            type: "default"
+            secretName: choreo-analytics-secret
+          - enabled: true
+            type: "elk"
         deployment:
           replicas: 1
           router:
@@ -274,17 +279,17 @@ wso2:
       enabled: true
       # configDSBalHost: 0.0.0.0
       # idpDSBalHost: 0.0.0.0
-      # statsd:
-      #   image:
-      #     repository: prom/statsd-exporter
-      #     tag: v0.26.0
-      #   imagePullPolicy: IfNotPresent
-      #   resources:
-      #     limits:
-      #       memory: 128Mi
-      #     requests:
-      #       cpu: 0.1
-      #       memory: 64Mi
+      statsd:
+        image:
+          repository: prom/statsd-exporter
+          tag: v0.26.0
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            memory: 128Mi
+          requests:
+            cpu: 0.1
+            memory: 64Mi
 idp:
   enabled: true
   listener:

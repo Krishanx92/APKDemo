@@ -1,0 +1,79 @@
+---
+apiVersion: "gateway.networking.k8s.io/v1beta1"
+kind: "HTTPRoute"
+metadata:
+  name: "7416c241a121b844392d447f00ff6709cb9c932b-production-httproute-1"
+  labels:
+    api-name: "19dd5247f7a11c22f8362ab083d7b8402207d6fb"
+    api-version: "91e95be6b6634e3c21072dfcd661146728694326"
+    organization: "2e14f1a627e0f7388df2efa85fba6816ac25f094"
+    managed-by: "apk"
+spec:
+  hostnames:
+  - "carbon.super.gw.wso2.com"
+  rules:
+  - matches:
+    - path:
+        type: "RegularExpression"
+        value: "/reservation"
+      method: "GET"
+    filters:
+    - type: "URLRewrite"
+      urlRewrite:
+        path:
+          type: "ReplaceFullPath"
+          replaceFullPath: "/reservation"
+    backendRefs:
+    - group: "dp.wso2.com"
+      kind: "Backend"
+      name: "backend-f3d6786c4f383ffbd7ec8620596811df652dba73-api"
+  - matches:
+    - path:
+        type: "RegularExpression"
+        value: "/reservation"
+      method: "POST"
+    filters:
+    - type: "URLRewrite"
+      urlRewrite:
+        path:
+          type: "ReplaceFullPath"
+          replaceFullPath: "/reservation"
+    backendRefs:
+    - group: "dp.wso2.com"
+      kind: "Backend"
+      name: "backend-f3d6786c4f383ffbd7ec8620596811df652dba73-api"
+  - matches:
+    - path:
+        type: "RegularExpression"
+        value: "/reservation/(.*)"
+      method: "PUT"
+    filters:
+    - type: "URLRewrite"
+      urlRewrite:
+        path:
+          type: "ReplaceFullPath"
+          replaceFullPath: "/reservation/\\1"
+    backendRefs:
+    - group: "dp.wso2.com"
+      kind: "Backend"
+      name: "backend-f3d6786c4f383ffbd7ec8620596811df652dba73-api"
+  - matches:
+    - path:
+        type: "RegularExpression"
+        value: "/reservation/(.*)"
+      method: "DELETE"
+    filters:
+    - type: "URLRewrite"
+      urlRewrite:
+        path:
+          type: "ReplaceFullPath"
+          replaceFullPath: "/reservation/\\1"
+    backendRefs:
+    - group: "dp.wso2.com"
+      kind: "Backend"
+      name: "backend-f3d6786c4f383ffbd7ec8620596811df652dba73-api"
+  parentRefs:
+  - group: "gateway.networking.k8s.io"
+    kind: "Gateway"
+    name: "wso2-apk-default"
+    sectionName: "httpslistener"

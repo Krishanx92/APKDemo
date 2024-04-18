@@ -1,0 +1,79 @@
+---
+apiVersion: "gateway.networking.k8s.io/v1beta1"
+kind: "HTTPRoute"
+metadata:
+  name: "59983c8cfebfc9a8a479cd5b6bdb7a306642fb6c-production-httproute-1"
+  labels:
+    api-name: "9e5e73577617e8d88bed27fd01de5b6203e84a41"
+    api-version: "91e95be6b6634e3c21072dfcd661146728694326"
+    organization: "2e14f1a627e0f7388df2efa85fba6816ac25f094"
+    managed-by: "apk"
+spec:
+  hostnames:
+  - "carbon.super.gw.wso2.com"
+  rules:
+  - matches:
+    - path:
+        type: "RegularExpression"
+        value: "/booking"
+      method: "GET"
+    filters:
+    - type: "URLRewrite"
+      urlRewrite:
+        path:
+          type: "ReplaceFullPath"
+          replaceFullPath: "/booking"
+    backendRefs:
+    - group: "dp.wso2.com"
+      kind: "Backend"
+      name: "backend-761f21a6ea8c2259ccccd1bde4d4957e73c932a2-api"
+  - matches:
+    - path:
+        type: "RegularExpression"
+        value: "/booking"
+      method: "POST"
+    filters:
+    - type: "URLRewrite"
+      urlRewrite:
+        path:
+          type: "ReplaceFullPath"
+          replaceFullPath: "/booking"
+    backendRefs:
+    - group: "dp.wso2.com"
+      kind: "Backend"
+      name: "backend-761f21a6ea8c2259ccccd1bde4d4957e73c932a2-api"
+  - matches:
+    - path:
+        type: "RegularExpression"
+        value: "/booking/(.*)"
+      method: "PUT"
+    filters:
+    - type: "URLRewrite"
+      urlRewrite:
+        path:
+          type: "ReplaceFullPath"
+          replaceFullPath: "/booking/\\1"
+    backendRefs:
+    - group: "dp.wso2.com"
+      kind: "Backend"
+      name: "backend-761f21a6ea8c2259ccccd1bde4d4957e73c932a2-api"
+  - matches:
+    - path:
+        type: "RegularExpression"
+        value: "/booking/(.*)"
+      method: "DELETE"
+    filters:
+    - type: "URLRewrite"
+      urlRewrite:
+        path:
+          type: "ReplaceFullPath"
+          replaceFullPath: "/booking/\\1"
+    backendRefs:
+    - group: "dp.wso2.com"
+      kind: "Backend"
+      name: "backend-761f21a6ea8c2259ccccd1bde4d4957e73c932a2-api"
+  parentRefs:
+  - group: "gateway.networking.k8s.io"
+    kind: "Gateway"
+    name: "wso2-apk-default"
+    sectionName: "httpslistener"

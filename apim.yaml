@@ -210,7 +210,7 @@ wso2:
         # -- APIM AM_DB configurations.
         apim_db:
           # -- APIM AM_DB URL
-          url: "jdbc:mysql://apim-forrester-demo.mysql.database.azure.com:3306/apim_db?useSSL=false"
+          url: "jdbc:mysql://apk-forrester-demo.mysql.database.azure.com:3306/apim_db?useSSL=false"
           # -- APIM AM_DB username
           username: "wso2carbon"
           # -- APIM AM_DB password
@@ -227,7 +227,7 @@ wso2:
         # -- APIM SharedDB configurations.
         shared_db:
           # -- APIM SharedDB URL
-          url: "jdbc:mysql://apim-forrester-demo.mysql.database.azure.com:3306/shared_db?useSSL=false"
+          url: "jdbc:mysql://apk-forrester-demo.mysql.database.azure.com:3306/shared_db?useSSL=false"
           # -- APIM SharedDB username
           username: "wso2carbon"
           # -- APIM SharedDB password
@@ -370,9 +370,9 @@ wso2:
       # -- Container registry hostname
       registry: "docker.io"
       # -- Azure ACR repository name consisting the image
-      repository: "wso2/wso2am"
+      repository: "pubudu/wso2am"
       # -- Docker image digest
-      digest: "sha256:7d6ec26a396dc81b9bf06e7d03cc41d1c46e3199a0db6e19dde68673fbe53c3a"
+      digest: "sha256:c0c76d8c75bf3daeb4f1d872fbde7062b1188f49c5bc6906387e3e544fc34aee"
       # -- Refer to the Kubernetes documentation on updating images (https://kubernetes.io/docs/concepts/containers/images/#updating-images)
       imagePullPolicy: Always
 

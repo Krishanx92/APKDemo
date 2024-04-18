@@ -1,0 +1,16 @@
+---
+apiVersion: "dp.wso2.com/v1alpha1"
+kind: "Backend"
+metadata:
+  name: "backend-f3d6786c4f383ffbd7ec8620596811df652dba73-api"
+  labels:
+    api-name: "19dd5247f7a11c22f8362ab083d7b8402207d6fb"
+    api-version: "91e95be6b6634e3c21072dfcd661146728694326"
+    organization: "2e14f1a627e0f7388df2efa85fba6816ac25f094"
+    managed-by: "apk"
+spec:
+  services:
+  - host: "hotel-service.backend"
+    port: 82
+  basePath: ""
+  protocol: "http"

@@ -6,7 +6,7 @@ defaultVersion: false
 subscriptionValidation: false
 endpointConfigurations:
   production:
-    endpoint: "http://booking-service:81"
+    endpoint: "http://booking-service.backend:81"
 operations:
 - target: "/booking"
   verb: "GET"

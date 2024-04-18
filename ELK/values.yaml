@@ -1,0 +1,23 @@
+# Permit co-located instances for solitary Minikube virtual machines.
+antiAffinity: "soft"
+
+# Increase JVM heap size for better performance.
+esJavaOpts: "-Xmx512m -Xms512m"
+
+# Adjust resources allocation for better performance.
+resources:
+  requests:
+    cpu: "500m" # Increase to allow more CPU usage
+    memory: "1Gi" # Increase to provide more memory
+  limits:
+    cpu: "1000m" # Keep the same
+    memory: "1Gi" # Increase to provide more memory
+
+# Request larger persistent volumes for Elasticsearch data.
+#volumeClaimTemplate:
+#  accessModes: ["ReadWriteOnce"]
+#  storageClassName: "standard"
+#  resources:
+#    requests:
+#      storage: 1Gi # Increase storage for Elasticsearch data
+

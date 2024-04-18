@@ -1,31 +1,21 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "Taxi Booking API",
+    "title": "Hotel Reservation API",
     "version": "1.0.0",
-    "description": "API for taxi booking"
+    "description": "API for Hotel Reservation"
   },
   "servers": [
     {
-      "url": "http://booking-service:81"
+      "url": "http://hotel-service.backend:82"
     }
   ],
   "paths": {
-    "/booking": {
+    "/reservation": {
       "get": {
-        "summary": "Get all taxi bookings",
+        "summary": "Get all hotel reservations",
         "tags": [
-          "Taxi Booking"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
+          "Hotel Reservations"
         ],
         "responses": {
           "200": {
@@ -35,7 +25,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Booking"
+                    "$ref": "#/components/schemas/Reservation"
                   }
                 }
               }
@@ -44,15 +34,15 @@
         }
       },
       "post": {
-        "summary": "Create a new taxi booking",
+        "summary": "Create a new reservation",
         "tags": [
-          "Taxi Booking"
+          "Hotel Reservations"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Booking"
+                "$ref": "#/components/schemas/Reservation"
               }
             }
           }
@@ -63,7 +53,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/Booking"
+                  "$ref": "#/components/schemas/Reservation"
                 }
               }
             }
@@ -71,11 +61,11 @@
         }
       }
     },
-    "/booking/{id}": {
+    "/reservation/{id}": {
       "put": {
-        "summary": "Change taxi booking",
+        "summary": "Change hotel reservation",
         "tags": [
-          "Taxi Booking"
+          "Hotel Reservations"
         ],
         "parameters": [
           {
@@ -94,7 +84,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/Booking"
+                  "$ref": "#/components/schemas/Reservation"
                 }
               }
             }
@@ -102,9 +92,9 @@
         }
       },
       "delete": {
-        "summary": "Cancel taxi booking",
+        "summary": "Cancel hotel reservation",
         "tags": [
-          "Taxi Booking"
+          "Hotel Reservations"
         ],
         "operationId": "deleteEmployee",
         "parameters": [
@@ -124,7 +114,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/Booking"
+                  "$ref": "#/components/schemas/Reservation"
                 }
               }
             }
@@ -135,17 +125,21 @@
   },
   "components": {
     "schemas": {
-      "Booking": {
+      "Reservation": {
         "type": "object",
         "properties": {
           "id": {
             "type": "string"
           },
-          "passenger_name": {
+          "hotel_name": {
             "type": "string"
           },
-          "destination": {
+          "passenger": {
             "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
           }
         }
       }

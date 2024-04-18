@@ -6,7 +6,7 @@ defaultVersion: false
 subscriptionValidation: false
 endpointConfigurations:
   production:
-    endpoint: "http://hotel-service:82"
+    endpoint: "http://hotel-service.backend:82"
 operations:
 - target: "/reservation"
   verb: "GET"
@@ -24,4 +24,7 @@ operations:
   verb: "DELETE"
   secured: true
   scopes: []
+rateLimit:
+  requestsPerUnit: 5
+  unit: Minute
 

@@ -1,0 +1,16 @@
+---
+apiVersion: "dp.wso2.com/v1alpha1"
+kind: "Backend"
+metadata:
+  name: "backend-761f21a6ea8c2259ccccd1bde4d4957e73c932a2-api"
+  labels:
+    api-name: "9e5e73577617e8d88bed27fd01de5b6203e84a41"
+    api-version: "91e95be6b6634e3c21072dfcd661146728694326"
+    organization: "2e14f1a627e0f7388df2efa85fba6816ac25f094"
+    managed-by: "apk"
+spec:
+  services:
+  - host: "booking-service.backend"
+    port: 81
+  basePath: ""
+  protocol: "http"

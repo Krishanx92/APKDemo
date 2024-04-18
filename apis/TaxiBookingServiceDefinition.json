@@ -7,25 +7,15 @@
   },
   "servers": [
     {
-      "url": "http://booking-service:81"
+      "url": "http://booking-service.backend:81"
     }
   ],
   "paths": {
-    "/bookings": {
+    "/booking": {
       "get": {
         "summary": "Get all taxi bookings",
         "tags": [
           "Taxi Booking"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
         ],
         "responses": {
           "200": {
@@ -71,8 +61,9 @@
         }
       }
     },
-    "/bookings/{id}": {
+    "/booking/{id}": {
       "put": {
+        "summary": "Change taxi booking",
         "tags": [
           "Taxi Booking"
         ],
@@ -101,6 +92,7 @@
         }
       },
       "delete": {
+        "summary": "Cancel taxi booking",
         "tags": [
           "Taxi Booking"
         ],
@@ -136,15 +128,14 @@
       "Booking": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string"
+          },
           "passenger_name": {
             "type": "string"
           },
           "destination": {
             "type": "string"
-          },
-          "pickup_time": {
-            "type": "string",
-            "format": "date-time"
           }
         }
       }
